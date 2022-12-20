@@ -1,0 +1,419 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  clear: both;
+}
+
+body {
+  margin: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  overflow-x: hidden;
+  color: #fff;
+  background-image: linear-gradient(to top, #1b1b1b, #00183d);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  text-align: center;
+  width: 100%;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-button {
+  background-color: #223c62;
+}
+body::-webkit-scrollbar-track-piece {
+  background-color: #223c62;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid slategrey;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+body #particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+body #particles-js canvas {
+  z-index: -999;
+}
+body #window-barrier {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+#page {
+  position: relative;
+  width: 60%;
+  max-width: 990px;
+  margin: 0 auto;
+}
+#page .part {
+  background-color: #3f5677;
+  border: 1px groove #7494be;
+  border-radius: 7px;
+  margin-top: 20px;
+  box-shadow: 1px 1px 0px 0px #7494be;
+}
+#page .looking-for-help {
+  font-size: 50%;
+  position: absolute;
+  left: calc(100% - 30px);
+  white-space: nowrap;
+}
+#page .looking-for-help:hover {
+  cursor: help;
+}
+
+/* ~標頭 */
+header {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+}
+header h1 {
+  transition: color 0.5s ease-in;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+header nav ul {
+  padding: 0;
+}
+header nav ul li {
+  display: inline;
+  padding: 10px;
+}
+
+header nav a {
+  color: #fff;
+}
+header nav a#home {
+  color: thistle;
+}
+header nav a:hover {
+  color: thistle;
+}
+
+/* ~主要內容 */
+#content {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  font-size: 100%;
+  margin-top: 20px;
+  transition: background-color 0.5s ease-out;
+  /* *文章區 */
+  /* *打字區 */
+}
+#content #article {
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+  width: 90%;
+  margin: 25px auto;
+}
+#content #article #article-main-part {
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  position: relative;
+  overflow: scroll;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  cursor: default;
+  background-color: black;
+  width: 100%;
+  height: 349px;
+  padding: 15px 15px 0px 15px;
+  font-size: 110%;
+  text-align: left;
+  line-height: 1.3em;
+  letter-spacing: 0.03em;
+  font-family: Andale Mono, monospace;
+  color: #fff;
+}
+#content #article #article-main-part::-webkit-scrollbar {
+  width: 10px;
+}
+#content #article #article-main-part::-webkit-scrollbar-button {
+  background-color: #223c62;
+}
+#content #article #article-main-part::-webkit-scrollbar-track-piece {
+  background-color: #223c62;
+}
+#content #article #article-main-part::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid slategrey;
+}
+#content #article #article-main-part::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+#content #article #article-option-bar {
+  z-index: 1;
+  overflow: visible;
+  position: relative;
+  background-color: #223c62;
+  height: 36px;
+}
+#content #article #article-option-bar .article-option {
+  cursor: pointer;
+  float: left;
+  padding: 5px 10px;
+}
+#content #article #article-option-bar .article-option:hover {
+  text-decoration: underline;
+}
+#content #article #article-option-bar #looking-for-help-article-settings {
+  top: 10px;
+}
+#content #typing {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  margin: 25px auto;
+  border-radius: 4px;
+}
+#content #typing #typing-main-part {
+  position: relative;
+  cursor: default;
+  background-color: black;
+  width: 100%;
+  height: 190px;
+  border-radius: 4px;
+  padding: 15px 0px 0px 15px;
+  white-space: nowrap;
+  font-size: 110%;
+  text-align: left;
+  line-height: 1.3em;
+  letter-spacing: 0.03em;
+  font-family: Andale Mono, monospace;
+  color: #fff;
+  resize: none;
+}
+#content #typing #typing-main-part::-webkit-scrollbar {
+  width: 10px;
+}
+#content #typing #typing-main-part::-webkit-scrollbar-button {
+  background-color: #223c62;
+}
+#content #typing #typing-main-part::-webkit-scrollbar-track-piece {
+  background-color: #223c62;
+}
+#content #typing #typing-main-part::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid slategrey;
+}
+#content #typing #typing-main-part::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+#content #typing #typing-main-part::-webkit-input-placeholder {
+  white-space: pre;
+  line-height: 1.3em;
+}
+#content #typing #typing-option-bar {
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  background-color: #223c62;
+}
+#content #typing #typing-option-bar .typing-option {
+  cursor: pointer;
+  float: left;
+  padding: 5px 10px;
+}
+#content #typing #typing-option-bar .typing-option:hover {
+  text-decoration: underline;
+}
+#content #typing #typing-option-bar #looking-for-help-keyboard {
+  top: 10px;
+}
+#content #typing-status {
+  position: relative;
+  overflow: hidden;
+  margin: 25px auto;
+  width: 90%;
+  height: 70px;
+  background-color: black;
+  border-right: 10px solid #223c62;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+#content #typing-status .status-member {
+  opacity: 1;
+  position: absolute;
+  transition-property: top, opacity;
+  transition-duration: 0.25s, 0.25s;
+  transition-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05), ease-in;
+  width: 11em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+  font-size: 80%;
+  border: 3px double #223c62;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px 0px #163159;
+  white-space: nowrap;
+  color: thistle;
+}
+#content #typing-status .status-member:hover {
+  border-color: #3f5677;
+}
+#content #typing-status .status-member div {
+  opacity: 0.7;
+  width: 100%;
+}
+#content #typing-status .status-member div:hover {
+  opacity: 1;
+}
+#content #typing-status #typing-timer {
+  top: -50%;
+  left: 80%;
+}
+#content #typing-status #typing-status-leftslot {
+  top: -50%;
+  left: 20%;
+}
+#content #typing-status #typing-status-rightslot {
+  top: -50%;
+  left: 50%;
+}
+#content #typing-status #typing-status-spentTime {
+  top: 150%;
+  left: 80%;
+}
+#content #typing-status #typing-status-final-leftslot {
+  top: 150%;
+  left: 20%;
+}
+#content #typing-status #typing-status-final-rightslot {
+  top: 150%;
+  left: 50%;
+}
+#content #typing-status #typing-status-invis-leftslot {
+  top: 65%;
+  left: 32%;
+  opacity: 0;
+}
+#content #typing-status #typing-status-invis-rightslot {
+  top: 65%;
+  left: 68%;
+  opacity: 0;
+}
+#content #typing-status #typing-status-invis-leftslot2 {
+  top: 80%;
+  left: 20%;
+  opacity: 0;
+}
+#content #typing-status #typing-status-invis-middleslot2 {
+  top: 80%;
+  left: 50%;
+  opacity: 0;
+}
+#content #typing-status #typing-status-invis-rightslot2 {
+  top: 80%;
+  left: 80%;
+  opacity: 0;
+}
+#content #typing-status #typing-status-invis-rightslot2 div:hover {
+  color: transparent;
+  background-image: linear-gradient(90deg, red, rgb(0, 255, 157));
+  -webkit-background-clip: text;
+          background-clip: text;
+  font-weight: bold;
+}
+#content #typing-status #typing-status-moreDetails {
+  position: absolute;
+  width: 3%;
+  height: 70px;
+  right: 0%;
+  bottom: 0%;
+  background-color: #223c62;
+  display: none;
+  border-top: 5px solid #163159;
+  border-bottom: 5px solid #163159;
+}
+#content #typing-status #typing-status-moreDetails div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0.4;
+}
+#content #typing-status #typing-status-moreDetails div:hover {
+  opacity: 1;
+}
+
+/* ~頁尾區 */
+footer {
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+footer .footer-infomation {
+  display: block;
+  cursor: pointer;
+  font-size: 90%;
+  margin-top: 5px;
+}
+footer .footer-infomation a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .footer-infomation a:hover {
+  text-decoration: underline;
+}
+footer #footer-infomation-left {
+  overflow: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: left;
+}
+footer #footer-infomation-left .footer-infomation-left {
+  clear: left;
+  float: left;
+  margin-left: 15px;
+}
+footer #footer-infomation-right {
+  overflow: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+}
+footer #footer-infomation-right .footer-infomation-right {
+  clear: right;
+  float: right;
+  margin-right: 15px;
+}
+footer #footer-infomation-right .footer-infomation-right#developers {
+  margin-bottom: 5px;
+}
+footer #to-top {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=index.css.map */

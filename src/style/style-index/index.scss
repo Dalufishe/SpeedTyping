@@ -1,0 +1,431 @@
+@import "../exports/variables";
+
+@mixin color-ease($time) {
+  transition: color $time ease-in;
+}
+@mixin article_text_style {
+  font-size: 110%;
+  text-align: left;
+  line-height: 1.3em;
+  letter-spacing: 0.03em;
+  font-family: Andale Mono, monospace;
+  color: $main-text-color;
+}
+@mixin scrollbar($color) {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-button {
+    background-color: $color;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: $color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+
+    background-color: rgba(0, 0, 0, 0.35);
+
+    border: 1px solid slategrey;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: transparent;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  clear: both;
+}
+
+body {
+  margin: 0;
+
+  user-select: none;
+  position: relative;
+  overflow-x: hidden;
+  color: $main-text-color;
+  background-image: $main-bg-color;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  text-align: center;
+  width: 100%;
+
+  @include scrollbar($optionsBar-bg-color);
+
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    canvas {
+      z-index: -999;
+    }
+  }
+
+  #window-barrier {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+}
+
+#page {
+  position: relative;
+  width: 60%;
+  max-width: 990px;
+  margin: 0 auto;
+
+  .part {
+    background-color: $block-bg-color;
+    border: 1px groove $main-border-color;
+    border-radius: 7px;
+    margin-top: 20px;
+    box-shadow: 1px 1px 0px 0px $main-border-color;
+  }
+
+  .looking-for-help {
+    font-size: 50%;
+    // *容器position屬性須為relative才能正常顯示
+    position: absolute;
+    left: calc(100% - 30px);
+    white-space: nowrap;
+
+    &:hover {
+      cursor: help;
+    }
+  }
+}
+
+/* ~標頭 */
+header {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+
+  h1 {
+    @include color-ease(0.5s);
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  nav {
+    ul {
+      padding: 0;
+      li {
+        display: inline;
+        padding: 10px;
+      }
+    }
+  }
+}
+header nav a {
+  color: $main-text-color;
+
+  &#home {
+    color: $link-hover-color;
+  }
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+/* ~主要內容 */
+#content {
+  position: relative;
+  overflow: hidden;
+  color: $main-text-color;
+  font-size: 100%;
+  margin-top: 20px;
+  transition: background-color 0.5s ease-out;
+
+  /* *文章區 */
+  #article {
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    width: 90%;
+    margin: 25px auto;
+
+    #article-main-part {
+      user-select: text;
+      position: relative;
+      overflow: scroll;
+      overflow-x: hidden;
+      white-space: pre-wrap;
+      cursor: default;
+      background-color: $text-bg-color;
+      width: 100%;
+      height: 349px;
+      padding: 15px 15px 0px 15px;
+      @include article_text_style;
+      @include scrollbar($optionsBar-bg-color);
+    }
+
+    #article-option-bar {
+      z-index: 1;
+      overflow: visible;
+      position: relative;
+      background-color: $optionsBar-bg-color;
+      height: 36px;
+
+      .article-option {
+        cursor: pointer;
+        float: left;
+        padding: 5px 10px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      #looking-for-help-article-settings {
+        top: 10px;
+      }
+    }
+  }
+
+  /* *打字區 */
+  #typing {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    margin: 25px auto;
+    border-radius: 4px;
+
+    #typing-main-part {
+      position: relative;
+      cursor: default;
+      background-color: $text-bg-color;
+      width: 100%;
+      height: 190px;
+      border-radius: 4px;
+      padding: 15px 0px 0px 15px;
+      white-space: nowrap;
+      @include article_text_style;
+      @include scrollbar($optionsBar-bg-color);
+      resize: none;
+
+      &::-webkit-input-placeholder {
+        white-space: pre;
+        line-height: 1.3em;
+      }
+    }
+
+    #typing-option-bar {
+      z-index: 1;
+      overflow: hidden;
+      position: relative;
+      background-color: $optionsBar-bg-color;
+
+      .typing-option {
+        cursor: pointer;
+        float: left;
+        padding: 5px 10px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      #looking-for-help-keyboard {
+        top: 10px;
+      }
+    }
+  }
+
+  #typing-status {
+    position: relative;
+    overflow: hidden;
+    margin: 25px auto;
+    width: 90%;
+    height: 70px;
+    background-color: $text-bg-color;
+    border-right: 10px solid $optionsBar-bg-color;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+
+    .status-member {
+      opacity: 1;
+      position: absolute;
+      transition-property: top, opacity;
+      transition-duration: 0.25s, 0.25s;
+      transition-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05), ease-in;
+      width: 11em;
+      height: 3em;
+      transform: translate(-50%, -50%);
+      font-size: 80%;
+      border: 3px double $optionsBar-bg-color;
+      border-radius: 3px;
+      box-shadow: 1px 1px 3px 0px $rightBar-bg-color;
+      white-space: nowrap;
+      color: thistle;
+
+      &:hover {
+        border-color: $block-bg-color;
+      }
+
+      div {
+        opacity: 0.7;
+        width: 100%;
+        
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    #typing-timer {
+      top: -50%;
+      left: 80%;
+    }
+    #typing-status-leftslot {
+      top: -50%;
+      left: 20%;
+    }
+    #typing-status-rightslot {
+      top: -50%;
+      left: 50%;
+    }
+    #typing-status-spentTime {
+      top: 150%;
+      left: 80%;
+    }
+    #typing-status-final-leftslot {
+      top: 150%;
+      left: 20%;
+    }
+    #typing-status-final-rightslot {
+      top: 150%;
+      left: 50%;
+    }
+    #typing-status-invis-leftslot {
+      top: 65%;
+      left: 32%;
+      opacity: 0;
+    }
+    #typing-status-invis-rightslot {
+      top: 65%;
+      left: 68%;
+      opacity: 0;
+    }
+    #typing-status-invis-leftslot2 {
+      top: 80%;
+      left: 20%;
+      opacity: 0;
+    }
+    #typing-status-invis-middleslot2 {
+      top: 80%;
+      left: 50%;
+      opacity: 0;
+    }
+    #typing-status-invis-rightslot2 {
+      top: 80%;
+      left: 80%;
+      opacity: 0;
+
+      div {
+        &:hover {
+          color: transparent;
+          background-image: linear-gradient(90deg, red, rgb(0, 255, 157));
+          background-clip: text;
+          font-weight: bold;
+        }
+      }
+    }
+
+    #typing-status-moreDetails {
+      position: absolute;
+      width: 3%;
+      height: 70px;
+      right: 0%;
+      bottom: 0%;
+      background-color: $optionsBar-bg-color;
+      display: none;
+      border-top: 5px solid $rightBar-bg-color;
+      border-bottom: 5px solid $rightBar-bg-color;
+
+      div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        opacity: 0.4;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* ~頁尾區 */
+footer {
+  overflow: hidden;
+  position: relative;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .footer-infomation {
+    display: block;
+    cursor: pointer;
+    font-size: 90%;
+    margin-top: 5px;
+
+    a {
+      color: $main-text-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  #footer-infomation-left {
+    overflow: hidden;
+    width: fit-content;
+    float: left;
+
+    .footer-infomation-left {
+      clear: left;
+      float: left;
+      margin-left: 15px;
+    }
+  }
+  #footer-infomation-right {
+    overflow: hidden;
+    width: fit-content;
+    float: right;
+
+    .footer-infomation-right {
+      clear: right;
+      float: right;
+      margin-right: 15px;
+
+      &#developers {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  #to-top {
+    user-select: none;
+    cursor: pointer;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
