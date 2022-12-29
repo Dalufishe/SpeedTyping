@@ -42,14 +42,3 @@
 | 第十一周  | xx/xx |           |      |
 | 第十二周  | xx/xx |           |      |
 | 第十三周  | xx/xx |           |      |
-
-
-
-<style>
-  .header-h3 {
-    text-decoration: none;
- }
-  .header-h3:hover {
-    text-decoration: underline;
- }
-</style>
